@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.geeks.noteapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.geeks.noteapp"
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures{
+        viewBinding=true
+    }
 }
 
 dependencies {
@@ -45,4 +48,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //navigation
+    val navVersion = "2.8.5"
+    implementation("androidx.navigation:navigation-fragment:$navVersion")
+    implementation("androidx.navigation:navigation-ui:$navVersion")
+    implementation (libs.glide)
 }
