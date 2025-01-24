@@ -6,13 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.geeks.noteapp.App
 import com.geeks.noteapp.R
+import com.geeks.noteapp.data.models.NoteModel
 import com.geeks.noteapp.databinding.FragmentNoteBinding
-import com.geeks.noteapp.utils.PreferenceHelper
+import com.geeks.noteapp.ui.adapters.NoteAdapter
 
 class NoteFragment : Fragment() {
+
     private lateinit var binding: FragmentNoteBinding
+    private val noteAdapter = NoteAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,29 +28,28 @@ class NoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initialize()
         setupListener()
+        getData()
+    }
+
+
+    private fun initialize() = with(binding) {
+        rvNote.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = noteAdapter
+        }
     }
 
     private fun setupListener() = with(binding) {
-        val sharedPreferences = PreferenceHelper()
-        sharedPreferences.unit(requireContext())
         btnPlus.setOnClickListener {
-            val et = etSearch.text.toString()
-            sharedPreferences.text = et
-            txtText.text = et
-        }
-        txtText.text = sharedPreferences.text
-
-//        btnPlus.setOnClickListener {
-//            findNavController().navigate(
-//                R.id.action_noteFragment_to_noteDetailFragment,
-//                null,
-//                navOptions {
-//                    anim {
-//                        enter = R.anim.slide_in_right
-//                        exit = R.anim.slide_out_left
-//                    }
-//                })
+            findNavController().navigate(R.id.action_noteFragment_to_noteDetailFragment)
         }
     }
-//}
+
+    private fun getData() {
+        App.appDatabase?.noteDao()?.getAll()?.observe(viewLifecycleOwner) { listModel ->
+            noteAdapter.submitList(listModel)
+        }
+    }
+}
