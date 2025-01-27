@@ -5,19 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.geeks.noteapp.App
 import com.geeks.noteapp.R
+import com.geeks.noteapp.data.models.NoteModel
 import com.geeks.noteapp.databinding.FragmentNoteBinding
 import com.geeks.noteapp.ui.adapters.NoteAdapter
+import com.geeks.noteapp.ui.interfaces.OnClickItem
 
-class NoteFragment : Fragment() {
+class NoteFragment : Fragment(), OnClickItem {
 
     private lateinit var binding: FragmentNoteBinding
-    private val noteAdapter = NoteAdapter()
+    private val noteAdapter = NoteAdapter(onLongClick = this, onClick = this)
 
     private var isLinearLayoutManager = true
 
@@ -49,7 +52,7 @@ class NoteFragment : Fragment() {
             findNavController().navigate(R.id.action_noteFragment_to_noteDetailFragment)
         }
 
-        btnSwitchLayout.setOnClickListener{
+        btnSwitchLayout.setOnClickListener {
             toggleLayoutManager()
         }
     }
@@ -57,9 +60,9 @@ class NoteFragment : Fragment() {
     private fun toggleLayoutManager() = with(binding) {
         val recyclerView = rvNote
 
-        val newLayoutManager:RecyclerView.LayoutManager = if (isLinearLayoutManager){
+        val newLayoutManager: RecyclerView.LayoutManager = if (isLinearLayoutManager) {
             GridLayoutManager(requireContext(), 2)
-        }else{
+        } else {
             LinearLayoutManager(requireContext())
         }
 
@@ -71,5 +74,25 @@ class NoteFragment : Fragment() {
         App.appDatabase?.noteDao()?.getAll()?.observe(viewLifecycleOwner) { listModel ->
             noteAdapter.submitList(listModel)
         }
+    }
+
+    override fun onLongClick(model: NoteModel) {
+        val builder = AlertDialog.Builder(requireContext())
+        with(builder) {
+            setTitle("Удалить заметку?")
+            setPositiveButton("Удалить") { dialog, _ ->
+                App.appDatabase?.noteDao()?.delete(model)
+            }
+            setNegativeButton("Отмена") { dialog, _ ->
+                dialog.cancel()
+            }
+            show()
+        }
+        builder.create()
+    }
+
+    override fun onClick(noteModel: NoteModel) {
+        val action = NoteFragmentDirections.actionNoteFragmentToNoteDetailFragment(noteModel.id)
+        findNavController().navigate(action)
     }
 }
