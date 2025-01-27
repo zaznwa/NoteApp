@@ -80,7 +80,7 @@ class NoteDetailFragment : Fragment() {
         btnDone.setOnClickListener {
             val etTitle = etTitle.text.toString()
             val etText = etText.text.toString()
-         val etDate = tvDate.text.toString()
+            val etDate = tvDate.text.toString()
 
             App.appDatabase?.noteDao()?.insert(NoteModel(etTitle,etText,etDate))
             findNavController().navigateUp()

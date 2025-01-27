@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.geeks.noteapp.App
 import com.geeks.noteapp.R
-import com.geeks.noteapp.data.models.NoteModel
 import com.geeks.noteapp.databinding.FragmentNoteBinding
 import com.geeks.noteapp.ui.adapters.NoteAdapter
 
@@ -17,6 +18,8 @@ class NoteFragment : Fragment() {
 
     private lateinit var binding: FragmentNoteBinding
     private val noteAdapter = NoteAdapter()
+
+    private var isLinearLayoutManager = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +48,23 @@ class NoteFragment : Fragment() {
         btnPlus.setOnClickListener {
             findNavController().navigate(R.id.action_noteFragment_to_noteDetailFragment)
         }
+
+        btnSwitchLayout.setOnClickListener{
+            toggleLayoutManager()
+        }
+    }
+
+    private fun toggleLayoutManager() = with(binding) {
+        val recyclerView = rvNote
+
+        val newLayoutManager:RecyclerView.LayoutManager = if (isLinearLayoutManager){
+            GridLayoutManager(requireContext(), 2)
+        }else{
+            LinearLayoutManager(requireContext())
+        }
+
+        recyclerView.layoutManager = newLayoutManager
+        isLinearLayoutManager = !isLinearLayoutManager
     }
 
     private fun getData() {
