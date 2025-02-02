@@ -1,0 +1,53 @@
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="152dp"
+    android:layout_height="110dp"
+    android:columnCount="3"
+    android:padding="16dp"
+    android:rowCount="2"
+    android:layout_gravity="end">
+
+    <View
+        android:id="@+id/color_yellow"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#FFF599"
+        android:tag="#FFF599" />
+
+    <View
+        android:id="@+id/color_purple"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#B69CFF"
+        android:tag="#B69CFF" />
+
+    <View
+        android:id="@+id/color_pink"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#FD99FF"
+        android:tag="#FD99FF" />
+
+    <View
+        android:id="@+id/color_orange"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#FF9E9E"
+        android:tag="#FF9E9E" />
+
+    <View
+        android:id="@+id/color_green"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#91F48F"
+        android:tag="#91F48F" />
+
+    <View
+        android:id="@+id/color_blue"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#9EFFFF"
+        android:tag="#9EFFFF" />
+
+
+</GridLayout>
