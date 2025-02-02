@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="20dp"
     android:paddingTop="20dp"
-    tools:context=".ui.fragments.note.NoteDetailFragment">
+    tools:context=".ui.fragments.note.note">
 
     <ImageButton
         android:id="@+id/btn_goback"

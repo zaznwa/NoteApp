@@ -30,7 +30,7 @@ class SplashFragment : Fragment() {
         if (preferenceHelper.shouldShowOnBoard()) {
             findNavController().navigate(R.id.action_splashFragment_to_onBoardFragment)
         } else {
-            findNavController().navigate(R.id.action_splashFragment_to_noteFragment)
+            findNavController().navigate(R.id.action_splashFragment_to_authFragment3)
         }
     }
 }

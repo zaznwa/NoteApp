@@ -14,8 +14,8 @@
             android:id="@+id/action_splashFragment_to_onBoardFragment"
             app:destination="@id/onBoardFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_noteFragment"
-            app:destination="@id/noteFragment" />
+            android:id="@+id/action_splashFragment_to_authFragment3"
+            app:destination="@id/authFragment" />
     </fragment>
     <fragment
         android:id="@+id/onBoardFragment"
@@ -23,12 +23,8 @@
         android:label="fragment_on_board"
         tools:layout="@layout/fragment_on_board" >
         <action
-            android:id="@+id/action_onBoardFragment_to_noteFragment"
-            app:destination="@id/noteFragment"
-            app:enterAnim="@anim/slide_out_left"
-            app:exitAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_in_right"
-            app:popEnterAnim="@anim/slide_out_left"/>
+            android:id="@+id/action_onBoardFragment_to_authFragment2"
+            app:destination="@id/authFragment" />
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
@@ -47,5 +43,14 @@
         <argument
             android:name="noteId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.geeks.noteapp.ui.fragments.singing.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" >
+        <action
+            android:id="@+id/action_authFragment_to_noteFragment2"
+            app:destination="@id/noteFragment" />
     </fragment>
 </navigation>

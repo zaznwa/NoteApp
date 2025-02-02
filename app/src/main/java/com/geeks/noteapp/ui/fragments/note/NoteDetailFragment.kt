@@ -1,4 +1,4 @@
-@file:Suppress("UNREACHABLE_CODE")
+
 
 package com.geeks.noteapp.ui.fragments.note
 
@@ -69,7 +69,6 @@ class NoteDetailFragment : Fragment() {
         tvDate.text = formattedDate
     }
 
-    @SuppressLint("SuspiciousIndentation")
     private fun setupListener() = with(binding) {
         btnGoback.setOnClickListener {
             findNavController().navigateUp()
