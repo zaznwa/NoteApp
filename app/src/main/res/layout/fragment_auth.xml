@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="#252525"
     android:orientation="vertical"
-    tools:context=".ui.fragments.singing.AuthFragment">
+    tools:context=".views.fragments.singing.AuthFragment">
 
     <TextView
         android:id="@+id/title_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="Notes"
+        android:text="@string/notes"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Авторизация"
+        android:text="@string/log_in"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
         android:layout_marginBottom="103dp"
         android:background="@drawable/bg_btn_auth"
         android:drawableStart="@drawable/google_logo"
-        android:text="Sign in with Google"
+        android:text="@string/sign_in_with_google"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

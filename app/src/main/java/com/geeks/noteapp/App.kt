@@ -3,8 +3,8 @@ package com.geeks.noteapp
 import android.app.Application
 import android.content.Context
 import androidx.room.Room
-import com.geeks.noteapp.data.db.AppDatabase
-import com.geeks.noteapp.utils.PreferenceHelper
+import com.geeks.noteapp.model.data.db.AppDatabase
+import com.geeks.noteapp.model.PreferenceHelper
 
 class App : Application() {
     companion object {

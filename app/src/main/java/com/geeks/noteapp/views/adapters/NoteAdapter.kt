@@ -1,13 +1,13 @@
-package com.geeks.noteapp.ui.adapters
+package com.geeks.noteapp.views.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.geeks.noteapp.data.models.NoteModel
+import com.geeks.noteapp.model.data.models.NoteModel
 import com.geeks.noteapp.databinding.ItemNoteBinding
-import com.geeks.noteapp.ui.interfaces.OnClickItem
+import com.geeks.noteapp.views.interfaces.OnClickItem
 
 class NoteAdapter(
     private val onLongClick: OnClickItem,
@@ -36,7 +36,9 @@ class NoteAdapter(
         holder.bind(getItem(position))
 
         holder.itemView.setOnLongClickListener {
-            onLongClick.onLongClick(getItem(position))
+            onLongClick.onLongClick(
+                getItem(position),
+            )
             true
         }
         holder.itemView.setOnClickListener {

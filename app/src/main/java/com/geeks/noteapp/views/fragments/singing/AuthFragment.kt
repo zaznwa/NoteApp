@@ -1,4 +1,4 @@
-package com.geeks.noteapp.ui.fragments.singing
+package com.geeks.noteapp.views.fragments.singing
 
 import android.app.Activity
 import android.content.Intent

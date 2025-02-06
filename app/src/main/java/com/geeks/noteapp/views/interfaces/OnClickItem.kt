@@ -1,6 +1,6 @@
-package com.geeks.noteapp.ui.interfaces
+package com.geeks.noteapp.views.interfaces
 
-import com.geeks.noteapp.data.models.NoteModel
+import com.geeks.noteapp.model.data.models.NoteModel
 
 interface OnClickItem {
     fun onLongClick(noteModel: NoteModel)

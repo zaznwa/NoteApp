@@ -1,4 +1,4 @@
-package com.geeks.noteapp.ui.fragments.onboard
+package com.geeks.noteapp.views.fragments.onboard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

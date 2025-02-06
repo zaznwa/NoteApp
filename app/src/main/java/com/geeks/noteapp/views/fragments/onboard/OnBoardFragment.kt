@@ -1,20 +1,16 @@
-package com.geeks.noteapp.ui.fragments.onboard
+package com.geeks.noteapp.views.fragments.onboard
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.geeks.noteapp.R
 import com.geeks.noteapp.databinding.FragmentOnBoardBinding
-import com.geeks.noteapp.ui.adapters.OnBoardAdapter
-import com.geeks.noteapp.utils.PreferenceHelper
+import com.geeks.noteapp.views.adapters.OnBoardAdapter
+import com.geeks.noteapp.model.PreferenceHelper
 
 
 class OnBoardFragment : Fragment() {

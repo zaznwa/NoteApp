@@ -1,4 +1,4 @@
-package com.geeks.noteapp.ui.fragments
+package com.geeks.noteapp.views.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.geeks.noteapp.R
 import com.geeks.noteapp.databinding.FragmentSplashBinding
-import com.geeks.noteapp.utils.PreferenceHelper
+import com.geeks.noteapp.model.PreferenceHelper
 
 class SplashFragment : Fragment() {
     private lateinit var binding: FragmentSplashBinding

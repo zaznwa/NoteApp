@@ -1,8 +1,6 @@
+package com.geeks.noteapp.views.fragments.note
 
-
-package com.geeks.noteapp.ui.fragments.note
-
-import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -14,24 +12,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.geeks.noteapp.App
 import com.geeks.noteapp.R
-import com.geeks.noteapp.data.models.NoteModel
+import com.geeks.noteapp.model.data.models.NoteModel
 import com.geeks.noteapp.databinding.FragmentNoteDetailBinding
+import com.geeks.noteapp.presenter.writenote.WriteNoteContract
+import com.geeks.noteapp.presenter.writenote.WriteNotePresenter
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class NoteDetailFragment : Fragment() {
+class NoteDetailFragment(override val note: NoteModel) : Fragment(), WriteNoteContract.View {
 
     private lateinit var binding: FragmentNoteDetailBinding
     private var noteId: Int = -1
 
+    private val presenter by lazy { WriteNotePresenter(this) }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentNoteDetailBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
@@ -95,9 +98,9 @@ class NoteDetailFragment : Fragment() {
             if (noteId != -1) {
                 val updateNote = NoteModel(etTitle, etText, etDate)
                 updateNote.id = noteId
-                App.appDatabase?.noteDao()?.update(updateNote)
+presenter.updateNote(note)
             }
-            App.appDatabase?.noteDao()?.insert(NoteModel(etTitle, etText, etDate))
+            presenter.saveNote(note)
             findNavController().navigateUp()
         }
         btnColorPicker.setOnClickListener {
@@ -140,5 +143,18 @@ class NoteDetailFragment : Fragment() {
             }
             alertDialog.show()
         }
+    }
+
+    override fun showError(message: String) {
+        Log.e(TAG, message)
+    }
+
+    override fun noteSaved() {
+        Toast.makeText(requireContext(),"Note saved",Toast.LENGTH_SHORT).show()
+    }
+
+    override fun noteUpdated() {
+        Toast.makeText(requireContext(),"Note updated",Toast.LENGTH_SHORT).show()
+
     }
 }

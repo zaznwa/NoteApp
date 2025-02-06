@@ -8,7 +8,7 @@
     android:paddingHorizontal="16dp"
     android:paddingStart="40dp"
     android:paddingEnd="40dp"
-    tools:context=".ui.fragments.onboard.OnBoardPagerFragment">
+    tools:context=".views.fragments.onboard.OnBoardPagerFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/gif_onboard"

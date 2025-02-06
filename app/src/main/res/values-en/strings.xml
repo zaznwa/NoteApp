@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notes">Notes</string>
+    <string name="log_in" translatable="false">Log in</string>
+    <string name="sign_in_with_google" translatable="false">Sign in with Google</string>
+    <string name="all_notes" translatable="false">All Notes</string>
+    <string name="search_notes" translatable="false">Search Notes</string>
+    <string name="title" translatable="false">Title</string>
+    <string name="text" translatable="false">Text</string>
+    <string name="ready" translatable="false">Save</string>
+    <string name="skip" translatable="false">Skip</string>
+    <string name="start" translatable="false">Start</string>
+</resources>

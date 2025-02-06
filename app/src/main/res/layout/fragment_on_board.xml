@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#252525"
-    tools:context=".ui.fragments.onboard.OnBoardFragment">
+    tools:context=".views.fragments.onboard.OnBoardFragment">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
@@ -16,9 +16,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Notes"
+        android:text="@string/notes"
         android:textColor="@color/white"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Пропустить"
+        android:text="@string/skip"
         android:textColor="#D88B02"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
         android:layout_width="230dp"
         android:layout_height="58dp"
         android:layout_gravity="bottom"
-        android:text="Начать"
+        android:text="@string/start"
         android:background="@drawable/rounded_btn"
         android:textSize="21sp"
         app:layout_constraintCircleRadius="20dp"

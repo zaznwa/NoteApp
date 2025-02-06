@@ -1,4 +1,4 @@
-package com.geeks.noteapp.utils
+package com.geeks.noteapp.model
 
 import android.content.Context
 import android.content.SharedPreferences
