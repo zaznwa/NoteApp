@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">NoteApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">1019601448931-3ra97nhdalfa7m3l3quj90uarljrv53b.apps.googleusercontent.com</string>
+
+
+
+    <string name="notes">Notes</string>
+    <string name="log_in" translatable="false">Авторизация</string>
+    <string name="sign_in_with_google" translatable="false">Войти с помощью Google</string>
+    <string name="all_notes" translatable="false">Все заметки</string>
+    <string name="search_notes" translatable="false">Поиск заметок</string>
+    <string name="title" translatable="false">Титл</string>
+    <string name="text" translatable="false">Текст</string>
+    <string name="ready" translatable="false">Готово</string>
+    <string name="skip" translatable="false">Пропустить</string>
+    <string name="start" translatable="false">Начать</string>
 </resources>
